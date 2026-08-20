@@ -43,7 +43,6 @@ def analyze():
         ""
     ).strip()
 
-    # Check empty review
     if not review:
 
         return render_template(
@@ -55,33 +54,17 @@ def analyze():
             aspect_results=[]
         )
 
-    # ------------------------------------
-    # 1. Overall sentiment using BERT
-    # ------------------------------------
-
     sentiment_result = predict(
         review
     )
-
-    # ------------------------------------
-    # 2. Extract aspects
-    # ------------------------------------
 
     extracted_aspects = extract_aspects(
         review
     )
 
-    # ------------------------------------
-    # 3. Analyze sentiment of each aspect
-    # ------------------------------------
-
     aspect_results = analyze_aspects(
         review
     )
-
-    # ------------------------------------
-    # 4. Send everything to template
-    # ------------------------------------
 
     return render_template(
 
@@ -89,7 +72,6 @@ def analyze():
 
         review=review,
 
-        # Overall sentiment
         sentiment=sentiment_result[
             "sentiment"
         ],
@@ -101,10 +83,8 @@ def analyze():
             2
         ),
 
-        # Aspect names
         extracted_aspects=extracted_aspects,
 
-        # Aspect + context + sentiment
         aspect_results=aspect_results
     )
 
