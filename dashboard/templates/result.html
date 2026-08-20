@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analysis Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            Steam Review Analysis
+        </h1>
+
+        <div class="review">
+
+            <h2>Review</h2>
+
+            <p>
+                {{ review }}
+            </p>
+
+        </div>
+
+        <div class="result">
+
+            <h2>
+                Overall Sentiment
+            </h2>
+
+            <div class="sentiment {{ sentiment }}">
+                {{ sentiment|upper }}
+            </div>
+
+            <p>
+                Confidence:
+                <strong>{{ confidence }}%</strong>
+            </p>
+
+        </div>
+
+        <div class="aspects">
+
+            <h2>
+                Detected Aspects
+            </h2>
+
+            {% if extracted_aspects %}
+
+                <div class="aspect-list">
+
+                    {% for aspect in extracted_aspects %}
+
+                        <span class="aspect">
+                            {{ aspect }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>
+                    No known aspects detected.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="aspect-analysis">
+
+            <h2>
+                Aspect Sentiment Analysis
+            </h2>
+
+            {% if aspect_results %}
+
+                {% for result in aspect_results %}
+
+                    <div class="aspect-card">
+
+                        <div class="aspect-header">
+
+                            <h3>
+                                {{ result.aspect }}
+                            </h3>
+
+                            <span
+                                class="aspect-sentiment {{ result.sentiment }}"
+                            >
+                                {{ result.sentiment|upper }}
+                            </span>
+
+                        </div>
+
+                        <p class="context">
+
+                            <strong>
+                                Context:
+                            </strong>
+
+                            {{ result.context }}
+
+                        </p>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No aspect sentiment results available.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        <a href="/" class="back-button">
+            Analyze another review
+        </a>
+
+    </div>
+
+</body>
+
+</html>

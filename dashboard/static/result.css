@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #171a21;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   Main Heading
+========================= */
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 35px;
+    color: #66c0f4;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: #c7d5e0;
+}
+
+h3 {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+
+/* =========================
+   Review
+========================= */
+
+.review {
+    background: #1b2838;
+    border: 1px solid #2a475e;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.review p {
+    color: #d6d7d8;
+    font-size: 17px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+
+/* =========================
+   Overall Result
+========================= */
+
+.result {
+    background: #1b2838;
+    border: 1px solid #2a475e;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.sentiment {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+
+/* Overall sentiment colors */
+
+.sentiment.positive {
+    background: rgba(35, 134, 54, 0.2);
+    border: 1px solid #3fb950;
+    color: #56d364;
+}
+
+.sentiment.negative {
+    background: rgba(218, 54, 51, 0.2);
+    border: 1px solid #f85149;
+    color: #ff7b72;
+}
+
+.sentiment.neutral {
+    background: rgba(139, 148, 158, 0.2);
+    border: 1px solid #8b949e;
+    color: #c9d1d9;
+}
+
+.result p {
+    color: #b8c4ce;
+    font-size: 16px;
+}
+
+
+/* =========================
+   Detected Aspects
+========================= */
+
+.aspects {
+    background: #1b2838;
+    border: 1px solid #2a475e;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.aspect-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.aspect {
+    background: #2a475e;
+    color: #66c0f4;
+    border: 1px solid #417a9b;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Aspect Analysis
+========================= */
+
+.aspect-analysis {
+    margin-bottom: 30px;
+}
+
+.aspect-card {
+    background: #1b2838;
+    border: 1px solid #2a475e;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.aspect-card:hover {
+    transform: translateY(-2px);
+    border-color: #66c0f4;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.aspect-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.aspect-sentiment {
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+
+/* Aspect positive */
+
+.aspect-sentiment.positive {
+    background: rgba(35, 134, 54, 0.2);
+    border: 1px solid #3fb950;
+    color: #56d364;
+}
+
+
+/* Aspect negative */
+
+.aspect-sentiment.negative {
+    background: rgba(218, 54, 51, 0.2);
+    border: 1px solid #f85149;
+    color: #ff7b72;
+}
+
+
+/* Aspect neutral */
+
+.aspect-sentiment.neutral {
+    background: rgba(139, 148, 158, 0.2);
+    border: 1px solid #8b949e;
+    color: #c9d1d9;
+}
+
+
+/* Context */
+
+.context {
+    color: #b8c4ce;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.context strong {
+    color: #ffffff;
+}
+
+
+/* =========================
+   Back Button
+========================= */
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(
+        135deg,
+        #1a9fff,
+        #66c0f4
+    );
+    color: #ffffff;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 192, 244, 0.3);
+}
+
+
+/* =========================
+   Empty Messages
+========================= */
+
+.aspects p,
+.aspect-analysis > p {
+    color: #8f98a0;
+    font-style: italic;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .review,
+    .result,
+    .aspects,
+    .aspect-card {
+        padding: 18px;
+    }
+
+    .aspect-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .aspect-sentiment {
+        align-self: flex-start;
+    }
+
+    .review p {
+        font-size: 15px;
+    }
+
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
+}
