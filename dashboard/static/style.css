@@ -20,6 +20,20 @@ h1 {
     margin-bottom: 10px;
 }
 
+.description {
+    max-width: 720px;
+    margin: 15px 0 30px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #aeb7c7;
+    letter-spacing: 0.2px;
+}
+
+.description strong {
+    color: #7da7ff;
+    font-weight: 600;
+}
+
 textarea {
     width: 100%;
     min-height: 200px;
